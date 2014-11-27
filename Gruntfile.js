@@ -351,6 +351,11 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+    bower: {
+      install: {
+         //just run 'grunt bower:install' and you'll see files from your Bower packages in lib directory
+      }
     }
   });
 
@@ -384,6 +389,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'bower:install',
     'clean:dist',
     'wiredep',
     'useminPrepare',
